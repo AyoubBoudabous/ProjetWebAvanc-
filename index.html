@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cap sur l'Espace</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="profile-window" class="profile-window">
+      <form id="profile-form" class="profile-form">
+        <h2>Bienvenue explorateur</h2>
+
+        <label>
+          Nom
+          <input id="nom" type="text" required />
+        </label>
+
+        <label>
+          Prénom
+          <input id="prenom" type="text" required />
+        </label>
+
+        <label>
+          Pseudo
+          <input id="pseudo" type="text" required />
+        </label>
+
+        <label>
+          Âge
+          <input id="age" type="number" min="1" required />
+        </label>
+
+        <button type="submit">Commencer</button>
+      </form>
+    </div>
+
+    <header class="site-header">
+      <a class="logo" href="#accueil">Cap sur l'Espace</a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="#accueil">Accueil</a>
+        <a href="#classe-ciel">Classe le ciel</a>
+        <a href="#mission">Mission</a>
+        <a href="#pendu">Pendu</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="accueil" class="page-section">
+        <h1>Explorons l'Univers</h1>
+        <p id="profile-display"></p>
+        <a id="start-button" class="start-button" href="#classe-ciel"
+          >Commencer le voyage</a
+        >
+      </section>
+
+      <section id="classe-ciel" class="page-section">
+        <h2>Classe le ciel</h2>
+        <p>Fais glisser chaque objet dans la bonne zone.</p>
+
+        <div id="drag-message" class="drag-message"></div>
+
+        <div class="space-items">
+          <div
+            id="mars"
+            class="space-item"
+            draggable="true"
+            data-zone="systeme"
+          >
+            <svg viewBox="0 0 100 100" aria-label="Mars">
+              <circle cx="50" cy="50" r="35" fill="#c84b31" />
+              <circle cx="38" cy="38" r="7" fill="#9e3425" />
+              <circle cx="58" cy="62" r="9" fill="#9e3425" />
+            </svg>
+            Mars
+          </div>
+          <div
+            id="jupiter"
+            class="space-item"
+            draggable="true"
+            data-zone="systeme"
+          >
+            <svg viewBox="0 0 100 100" aria-label="Jupiter">
+              <circle cx="50" cy="50" r="35" fill="#d6a35d" />
+              <path
+                d="M18 42 Q50 52 82 42 M17 55 Q50 66 83 55"
+                fill="none"
+                stroke="#8a5938"
+                stroke-width="6"
+              />
+            </svg>
+            Jupiter
+          </div>
+          <div
+            id="saturne"
+            class="space-item"
+            draggable="true"
+            data-zone="systeme"
+          >
+            <svg viewBox="0 0 100 100" aria-label="Saturne">
+              <circle cx="50" cy="50" r="25" fill="#d5b96d" />
+              <ellipse
+                cx="50"
+                cy="50"
+                rx="43"
+                ry="12"
+                fill="none"
+                stroke="#ead89a"
+                stroke-width="6"
+              />
+            </svg>
+            Saturne
+          </div>
+          <div
+            id="soleil"
+            class="space-item"
+            draggable="true"
+            data-zone="au-dela"
+          >
+            <svg viewBox="0 0 100 100" aria-label="Soleil">
+              <circle cx="50" cy="50" r="24" fill="#ffd54a" />
+              <path
+                d="M50 10V22 M50 78V90 M10 50H22 M78 50H90 M22 22L31 31 M69 69L78 78 M78 22L69 31 M31 69L22 78"
+                stroke="#ffb300"
+                stroke-width="7"
+              />
+            </svg>
+            Soleil
+          </div>
+          <div
+            id="sirius"
+            class="space-item"
+            draggable="true"
+            data-zone="au-dela"
+          >
+            <svg viewBox="0 0 100 100" aria-label="Sirius">
+              <circle cx="50" cy="50" r="18" fill="#bde4ff" />
+              <path
+                d="M50 10V35 M50 65V90 M10 50H35 M65 50H90"
+                stroke="#e8f7ff"
+                stroke-width="5"
+              />
+            </svg>
+            Sirius
+          </div>
+          <div
+            id="comete"
+            class="space-item"
+            draggable="true"
+            data-zone="au-dela"
+          >
+            <svg viewBox="0 0 100 100" aria-label="Comète">
+              <circle cx="62" cy="62" r="18" fill="#91c9ff" />
+              <path
+                d="M48 48L20 20 M43 55L12 40 M55 43L40 12"
+                stroke="#d9f1ff"
+                stroke-width="7"
+              />
+            </svg>
+            Comète
+          </div>
+        </div>
+
+        <div class="drop-zones">
+          <div id="zone-systeme" class="drop-zone" data-zone="systeme">
+            <h3>Système solaire</h3>
+          </div>
+          <div id="zone-au-dela" class="drop-zone" data-zone="au-dela">
+            <h3>Au-delà</h3>
+          </div>
+        </div>
+      </section>
+
+      <section id="mission" class="page-section">
+        <h2>Mission Astronaute</h2>
+        <div id="quiz">
+          <p id="quiz-question"></p>
+          <div id="quiz-answers"></div>
+          <p id="quiz-message"></p>
+        </div>
+      </section>
+
+      <section id="pendu" class="page-section">
+        <h2>Jeu du pendu</h2>
+        <p id="hangman-word"></p>
+        <p id="hangman-errors"></p>
+        <div id="hangman-keyboard"></div>
+        <p id="hangman-message"></p>
+
+        <svg id="hangman-drawing" viewBox="0 0 220 220" aria-label="Fusée du pendu">
+          <circle id="hangman-1" cx="110" cy="45" r="25" fill="none" stroke="white" stroke-width="6" />
+          <line id="hangman-2" x1="110" y1="70" x2="110" y2="130" stroke="white" stroke-width="6" />
+          <line id="hangman-3" x1="110" y1="85" x2="70" y2="115" stroke="white" stroke-width="6" />
+          <line id="hangman-4" x1="110" y1="85" x2="150" y2="115" stroke="white" stroke-width="6" />
+          <line id="hangman-5" x1="110" y1="130" x2="75" y2="175" stroke="white" stroke-width="6" />
+          <line id="hangman-6" x1="110" y1="130" x2="145" y2="175" stroke="white" stroke-width="6" />
+        </svg>
+
+        <button id="hangman-replay" type="button">Rejouer</button>
+      </section>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
